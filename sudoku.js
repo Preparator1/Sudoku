@@ -32,9 +32,9 @@ Module['ready'] = new Promise(function(resolve, reject) {
   readyPromiseReject = reject;
 });
 
-      if (!Object.getOwnPropertyDescriptor(Module['ready'], '_modifyString')) {
-        Object.defineProperty(Module['ready'], '_modifyString', { configurable: true, get: function() { abort('You are getting _modifyString on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js') } });
-        Object.defineProperty(Module['ready'], '_modifyString', { configurable: true, set: function() { abort('You are setting _modifyString on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js') } });
+      if (!Object.getOwnPropertyDescriptor(Module['ready'], '_solveSudoku')) {
+        Object.defineProperty(Module['ready'], '_solveSudoku', { configurable: true, get: function() { abort('You are getting _solveSudoku on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js') } });
+        Object.defineProperty(Module['ready'], '_solveSudoku', { configurable: true, set: function() { abort('You are setting _solveSudoku on the Promise object, instead of the instance. Use .then() to get called back with the instance, see the MODULARIZE docs in src/settings.js') } });
       }
     
 
@@ -1890,7 +1890,7 @@ var asm = createWasm();
 var ___wasm_call_ctors = Module["___wasm_call_ctors"] = createExportWrapper("__wasm_call_ctors");
 
 /** @type {function(...*):?} */
-var _modifyString = Module["_modifyString"] = createExportWrapper("modifyString");
+var _solveSudoku = Module["_solveSudoku"] = createExportWrapper("solveSudoku");
 
 /** @type {function(...*):?} */
 var ___errno_location = Module["___errno_location"] = createExportWrapper("__errno_location");

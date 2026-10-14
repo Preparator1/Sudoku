@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>C + JavaScript test</title>
-
+    <title>Sudoku solver</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,21 +12,48 @@
 
     <div class="container">
 
-        <h1>Test C + WebAssembly</h1>
+        <h1>Sudoku solver</h1>
+        <table id="sudokuTable"></table>
+        <script>
+            const sudokuTable = document.getElementById("sudokuTable");
 
-        <p>Zadej dvě čísla:</p>
+            for (let i = 0; i < 9; i++) {
+                let row = document.createElement("tr");
 
-        <input type="text" id="a">
+                for (let j = 0; j < 9; j++) {
+                    let cell = document.createElement("td");
 
-        <button id="calculate" disabled>
-            Načítání...
-        </button>
+                    let input = document.createElement("input");
+                    input.type = "text";
+                    input.maxLength = 1;
+                    input.inputMode = "numeric";
 
-        <h2 id="result">Výsledek: —</h2>
+                    input.addEventListener("input", function() {
+                        this.value = this.value.replace(/[^0-9]/g, "");
+                    });
+
+                    cell.appendChild(input);
+                    row.appendChild(cell);
+                }
+
+                sudokuTable.appendChild(row);
+            }
+        </script>
+
+        <div class="buttons">
+            <button class="submit-btn" onclick="submitSudoku()">
+                Submit
+            </button>
+
+            <button class="clear-btn" onclick="clearSudoku()">
+                Clear
+            </button>
+        </div>
+
+        <div id="toast"></div>
 
     </div>
 
-    <script src="sudoku.js"></script>
     <script src="script.js"></script>
 
 </body>
