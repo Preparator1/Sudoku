@@ -15,7 +15,7 @@ function showToast(message, type = "success") {
     toast.classList.add("show");
 
     if (type === "error") {
-        playSound();
+        playError();
     }
 
     toastTimeout = setTimeout(() => {
@@ -67,7 +67,7 @@ function submitSudoku() {
     });
 
     const sudokuOutput = wasm.ccall("solveSudoku", "string", ["string"], [sudokuInput]);
-    
+
     console.log(sudokuInput)
     console.log(sudokuOutput)
 }
